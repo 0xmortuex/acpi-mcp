@@ -8,9 +8,7 @@ authors = [{ name = "0xmortuex" }]
 requires-python = ">=3.10"
 dependencies = [
     "mcp>=2.0.0",
-    # PyPI rejects direct git references: switch to "gdbstub-mcp>=0.1.0" once
-    # gdbstub-mcp is published, before publishing acpi-mcp.
-    "gdbstub-mcp @ git+https://github.com/0xmortuex/gdbstub-mcp",
+    "gdbstub-mcp>=0.1.0",
 ]
 keywords = ["mcp", "acpi", "osdev", "qemu", "madt", "fadt", "kernel", "ai-agent"]
 classifiers = [
@@ -38,10 +36,6 @@ acpi-mcp = "acpi_mcp.server:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
-[tool.hatch.metadata]
-# gdbstub-mcp is installed from git until it's on PyPI.
-allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/acpi_mcp"]
